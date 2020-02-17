@@ -1,0 +1,32 @@
+
+
+cluster_name: rancher
+
+kubernetes_version: "v1.15.2-rancher1-1"
+
+nodes:
+  - address: 192.168.0.142
+    hostname_override: rancher.192.168.0.179.xip.io
+    user: riku
+    role: [controlplane,etcd,worker]
+
+monitoring:
+  provider: none
+
+dns:
+  provider: kube-dns
+  upstreamnameservers:
+  - 192.168.0.1
+
+network:
+  plugin: weave
+  weave_network_provider:
+    password: "4gftHAMK2z"
+
+ingress:
+  provider: nginx
+
+private_registries:
+  - url: registry.comiq.fi
+    user: rikuruokonen
+    password: DmMs1hU5ZJ-k_V-CUDxn
